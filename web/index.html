@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="preload" href="assets/assets/fonts/WhiskeyTown-Sober.ttf" as="font" type="font/ttf" crossorigin>
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Londoni minőség és sebesség Ferencváros szívében. Szaftos marhahús, egyedi kiegészítők és barátságos környezet vár rád.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Black Cab Burger">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Black Cab Burger</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <style>
+    /* Premium loading screen styling */
+    @font-face {
+      font-family: 'WhiskeyTown';
+      src: url('assets/assets/fonts/WhiskeyTown-Sober.ttf') format('truetype');
+      font-display: block;
+    }
+    body {
+      background-color: #F8F5F0;
+      margin: 0;
+      padding: 0;
+    }
+    .loading-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #F8F5F0;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.4s ease-out;
+    }
+    .loading-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .loading-logo {
+      width: 135px;
+      height: auto;
+      max-width: 80vw;
+      margin-bottom: 24px;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(26, 26, 26, 0.08);
+      border-top: 3px solid #AD0F0F;
+      border-radius: 50%;
+      animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+      margin-bottom: 20px;
+    }
+    .loading-text {
+      font-family: 'WhiskeyTown', system-ui, -apple-system, sans-serif;
+      font-size: 24px;
+      letter-spacing: 2px;
+      color: #1A1A1A;
+      opacity: 0.95;
+      animation: fade-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1.0); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1.0); }
+    }
+    @keyframes fade-pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 0.85; }
+      100% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading screen container -->
+  <div id="loading-indicator" class="loading-container">
+    <div class="loading-wrapper">
+      <img src="favicon.png" alt="Black Cab Burger Logo" class="loading-logo" />
+      <div class="loading-spinner"></div>
+      <div class="loading-text">BLACK CAB BURGER</div>
+    </div>
+  </div>
+
+  <script>
+    // Create observer to detect when Flutter mounts the app
+    const observer = new MutationObserver((mutations, obs) => {
+      const flutterView = document.querySelector('flutter-view');
+      if (flutterView) {
+        // Wait 1400ms after Flutter view is created to allow initial frame rendering,
+        // layout, font loading, and image decoding to settle in the background.
+        setTimeout(() => {
+          const loader = document.getElementById('loading-indicator');
+          if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+              loader.remove();
+            }, 400); // Remove from DOM after fade-out completes
+          }
+        }, 1400);
+        obs.disconnect(); // Stop observing
+      }
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
