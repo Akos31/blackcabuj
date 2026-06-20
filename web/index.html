@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -21,20 +22,38 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Londoni minőség és sebesség Ferencváros szívében. Szaftos marhahús, egyedi kiegészítők és barátságos környezet vár rád.">
+  <meta name="description"
+    content="Londoni minőség és sebesség Ferencváros szívében. Szaftos marhahús, egyedi kiegészítők és barátságos környezet vár rád.">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Black Cab Burger">
+  <meta property="og:description"
+    content="Londoni minőség és sebesség Ferencváros szívében. Szaftos marhahús, egyedi kiegészítők és barátságos környezet vár rád.">
+  <meta property="og:image" content="https://www.blackcabburger.hu/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.blackcabburger.hu/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Black Cab Burger">
+  <meta name="twitter:description"
+    content="Londoni minőség és sebesség Ferencváros szívében. Szaftos marhahús, egyedi kiegészítők és barátságos környezet vár rád.">
+  <meta name="twitter:image" content="https://www.blackcabburger.hu/og-image.png">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Black Cab Burger">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>Black Cab Burger</title>
   <link rel="manifest" href="manifest.json">
-  
+
   <style>
     /* Premium loading screen styling */
     @font-face {
@@ -42,11 +61,13 @@
       src: url('assets/assets/fonts/WhiskeyTown-Sober.ttf') format('truetype');
       font-display: block;
     }
+
     body {
       background-color: #F8F5F0;
       margin: 0;
       padding: 0;
     }
+
     .loading-container {
       position: fixed;
       top: 0;
@@ -61,12 +82,14 @@
       opacity: 1;
       transition: opacity 0.4s ease-out;
     }
+
     .loading-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
+
     .loading-logo {
       width: 135px;
       height: auto;
@@ -74,6 +97,7 @@
       margin-bottom: 24px;
       animation: pulse 1.8s ease-in-out infinite;
     }
+
     .loading-spinner {
       width: 40px;
       height: 40px;
@@ -83,6 +107,7 @@
       animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
       margin-bottom: 20px;
     }
+
     .loading-text {
       font-family: 'WhiskeyTown', system-ui, -apple-system, sans-serif;
       font-size: 24px;
@@ -91,22 +116,47 @@
       opacity: 0.95;
       animation: fade-pulse 1.8s ease-in-out infinite;
     }
+
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
+
     @keyframes pulse {
-      0% { transform: scale(1.0); }
-      50% { transform: scale(1.06); }
-      100% { transform: scale(1.0); }
+      0% {
+        transform: scale(1.0);
+      }
+
+      50% {
+        transform: scale(1.06);
+      }
+
+      100% {
+        transform: scale(1.0);
+      }
     }
+
     @keyframes fade-pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 0.85; }
-      100% { opacity: 0.4; }
+      0% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 0.85;
+      }
+
+      100% {
+        opacity: 0.4;
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- Loading screen container -->
   <div id="loading-indicator" class="loading-container">
@@ -143,5 +193,12 @@
   </script>
 
   <script src="flutter_bootstrap.js" async></script>
+  <script>
+    window.si = window.si || function () {
+      (window.siq = window.siq || []).push(arguments);
+    };
+  </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
+
 </html>
